@@ -120,8 +120,6 @@ Steps 1–2 and 4 are where humans do real work. The rest is where the agent ear
 **Supporting files**
 
 - [`PROMPTS.md`](PROMPTS.md) — every prompt in the workshop, copy-paste ready, in order
-- [`INSTRUCTOR-NOTES.md`](INSTRUCTOR-NOTES.md) — timing, talking points, troubleshooting, discussion questions
-
 ---
 
 ## Prerequisites
