@@ -59,13 +59,11 @@ Before breaking work down, validate the requirements themselves. This generates 
 /speckit.checklist Focus on validation, authentication boundaries, and empty or error states.
 ```
 
-Open the generated checklist under `specs/001-*/checklists/`. Work through it as a reviewer — tick an item only when you're satisfied the requirement genuinely covers it. If an item exposes a gap, go back:
+Open the generated checklist under `specs/001-*/checklists/`. Work through it as a reviewer, tick an item only when you're satisfied the requirement genuinely covers it. If an item exposes a gap, go back:
 
 ```text
 /speckit.clarify Focus on the gaps the checklist surfaced.
 ```
-
-> **Facilitator note:** in a time-boxed workshop, review the checklist out loud, tick the obvious items, and fix just one gap so the room sees the loop close. Don't let this run past 5 minutes.
 
 ---
 
@@ -125,12 +123,6 @@ Re-run `/speckit.analyze` until clean. This discipline — *fix it where it's ow
 
 The agent now works through `tasks.md` in dependency order: failing test, minimum code to pass, verify, next.
 
-**This takes several minutes. Use them.** Talking points while it runs — full set in [`INSTRUCTOR-NOTES.md`](../INSTRUCTOR-NOTES.md#while-implement-runs):
-
-- What does this do to the shape of code review?
-- Where does *your* expertise sit if you're not typing the implementation?
-- What happens to this workflow on a 400k-line legacy codebase?
-
 ### Verify it actually works
 
 ```bash
@@ -147,7 +139,7 @@ Then in a browser:
 **If tests fail, do not open the editor.** Hand the failure back as evidence:
 
 ```text
-The test suite is failing. Diagnose the root cause. If it's a defect in the implementation, fix it. If it's because the spec or plan was ambiguous or wrong, tell me which artifact is at fault and what it should say instead — don't silently work around it.
+The test suite is failing. Diagnose the root cause. If it's a defect in the implementation, fix it. If it's because the spec or plan was ambiguous or wrong, tell me which artifact is at fault and what it should say instead. Don't silently work around it.
 
 [paste the output]
 ```
@@ -194,11 +186,6 @@ Check with `git log -1` and `git show --stat`. If the message is vague, ask for 
 - [ ] `/speckit.analyze` reported clean
 - [ ] `/speckit.converge` reported converged
 - [ ] One semantic commit exists
-
----
-
-## ☕ Break — 10 minutes
-
 ---
 
 [Next: Module 3 — Multi-Course Support →](03-multi-course.md)
