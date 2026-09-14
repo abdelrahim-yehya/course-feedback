@@ -6,13 +6,13 @@
 
 ## Goal
 
-Make the UI genuinely usable while preventing the agent from reaching for a framework — and learn where a durable constraint belongs.
+Make the UI genuinely usable while preventing the agent from reaching for a framework and learn where a durable constraint belongs.
 
 ---
 
 ## 5.1 — The teaching point: constitution vs. spec
 
-Left alone, an agent asked to "make this look modern" will often pull in Tailwind, Bootstrap, or a component library. Not out of malice — those are statistically what "modern UI" looks like in its training data.
+Left alone, an agent asked to "make this look modern" will often pull in Tailwind, Bootstrap, or a component library. Not out of malice, those are statistically what "modern UI" looks like in its training data.
 
 The naive fix is to add "no frameworks" to the feature spec. **Wrong place.** Ask which is true:
 
@@ -25,12 +25,12 @@ The second is **constitutional**. Put it in a spec and you must restate it in ev
 
 ## 5.2 — Amend the constitution
 
-Interview first, again — because "modern and polished" is exactly the kind of phrase that means nothing until someone makes you define it.
+Interview first, again because "modern and polished" is exactly the kind of phrase that means nothing until someone makes you define it.
 
 ### 👉 Prompt 1 — the interview (plain message)
 
 ```text
-I want to add a design principle to our constitution. The UI has to look modern and polished, but it must be built only with hand-written CSS — no frameworks, no component libraries, no build step.
+I want to add a design principle to our constitution. The UI has to look modern and polished, but it must be built only with hand-written CSS, no frameworks, no component libraries, no build step.
 
 Interview me about what "modern and polished" should mean concretely: spacing, colour, elevation, interaction states, accessibility, responsiveness. Up to five questions with your recommendations. Also ask me what should be explicitly forbidden. Don't write anything yet.
 ```
@@ -64,7 +64,7 @@ Interview me about what "modern and polished" should mean concretely: spacing, c
 ### 👉 Prompt 3
 
 ```text
-/speckit.specify Make the app look and feel modern. No behaviour changes at all — same routes, same validation, same auth. Star rating instead of a number input. Feedback shown as cards with the course as a badge. Summary figures at the top of the dashboard. And every state properly designed: loading, empty, and error.
+/speckit.specify Make the app look and feel modern. No behaviour changes at all, same routes, same validation, same auth. Star rating instead of a number input. Feedback shown as cards with the course as a badge. Summary figures at the top of the dashboard. And every state properly designed: loading, empty, and error.
 ```
 
 ### 👉 Prompt 4
@@ -93,7 +93,7 @@ Interview me about what "modern and polished" should mean concretely: spacing, c
 ### 👉 Prompt 5
 
 ```text
-/speckit.plan Restyle the existing frontend only — server code and API contracts unchanged. Rebuild the stylesheet around a :root custom property block. Build the star rating from accessible radio inputs styled with CSS, so keyboard operation and screen-reader semantics come for free instead of being rebuilt in JavaScript. Existing tests must keep passing unmodified.
+/speckit.plan Restyle the existing frontend only, server code and API contracts unchanged. Rebuild the stylesheet around a :root custom property block. Build the star rating from accessible radio inputs styled with CSS, so keyboard operation and screen-reader semantics come for free instead of being rebuilt in JavaScript. Existing tests must keep passing unmodified.
 ```
 
 ```text
@@ -126,7 +126,7 @@ grep -rn "cdn\|unpkg\|jsdelivr\|googleapis\|tailwind\|bootstrap" public/ src/
 head -40 public/*.css
 ```
 
-Then in the browser: tab through the whole student form using only the keyboard. Can you set a rating? Is focus always visible? Resize to phone width — anything overflow?
+Then in the browser: tab through the whole student form using only the keyboard. Can you set a rating? Is focus always visible? Resize to phone width, anything overflow?
 
 **If the agent smuggled in a framework anyway,** that's a valuable moment. Don't rip it out by hand:
 
@@ -156,12 +156,6 @@ Check the diff, confirm tests pass and no dependencies were added, write a Conve
 - [ ] Star rating fully keyboard-operable with visible focus
 - [ ] All previous tests still pass
 - [ ] Fourth semantic commit exists
-
----
-
-## 💬 Discussion (2 min)
-
-> Which constraints in your own codebase are currently enforced only by reviewer memory? Those are the ones that decay silently — and they're exactly what a constitution is for.
 
 ---
 
