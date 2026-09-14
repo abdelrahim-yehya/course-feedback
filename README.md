@@ -2,7 +2,7 @@
 
 **A 3-hour hands-on workshop for software engineering teams**
 
-You will build a working course-feedback application end to end without writing application code by hand. Every line is produced by an AI agent from a specification you control. By the end you will have a repository with six commits, a test suite, and — more importantly — a repeatable process you can take back to your own codebase.
+You will build a working course-feedback application end to end without writing application code by hand. Every line is produced by an AI agent from a specification you control. By the end you will have a repository with six commits, a test suite, and more importantly, a repeatable process you can take back to your own codebase.
 
 ---
 
@@ -37,13 +37,13 @@ That reframe is the whole workshop. For an engineering audience it maps cleanly 
 
 When a requirement changes, you do not open the editor and patch the code. You change the spec and re-run the cascade. Code becomes cheap and disposable; the spec becomes the thing you protect.
 
-**The realistic version:** you will still read the code, still review the diffs, still own what ships. SDD does not remove engineering judgement — it moves it earlier, from "reviewing 800 lines of generated code" to "reviewing 40 lines of requirements." That is a much better place to spend your attention.
+**The realistic version:** you will still read the code, still review the diffs, still own what ships. SDD does not remove engineering judgement, it moves it earlier, from "reviewing 800 lines of generated code" to "reviewing 40 lines of requirements." That is a much better place to spend your attention.
 
 ---
 
 ## 🗣 How we prompt in this workshop
 
-Every prompt here is **short**. A sentence or two. You are not expected to write a 300-word specification into a chat box — that is exactly the skill this workshop is trying to make unnecessary.
+Every prompt here is **short**. A sentence or two. You are not expected to write a 300-word specification into a chat box, that is exactly the skill this workshop is trying to make unnecessary.
 
 Instead, the detail gets **elicited**, not dictated. Two patterns, used throughout:
 
@@ -52,7 +52,7 @@ Instead, the detail gets **elicited**, not dictated. Two patterns, used througho
 For anything where you'd otherwise have to know all the answers up front (the constitution, the technical plan), you open with a plain message asking the agent to interview you:
 
 ```text
-Interview me before you write anything. Ask me the questions you need answered to do this well — up to five at a time, and give me your recommended default for each so I can just say "defaults" where I don't care. When you have enough, summarise what you understood and wait for my confirmation before generating anything.
+Interview me before you write anything. Ask me the questions you need answered to do this well, up to five at a time, and give me your recommended default for each so I can just say "defaults" where I don't care. When you have enough, summarise what you understood and wait for my confirmation before generating anything.
 ```
 
 Then the slash command is one line, referring back to the conversation:
@@ -80,7 +80,7 @@ For specifications, you don't need Pattern A — Spec Kit already has a question
 
 Short prompts move the work into your **answers**. If you reply "whatever you think" to every question, you get a specification full of the agent's assumptions with your name on it. The questions are where you're supposed to make decisions.
 
-Every module includes an **answer key** — the choices we're making and why — so nobody stalls, and so the whole room ends up roughly aligned.
+Every module includes an **answer key**, the choices we're making and why, so nobody stalls, and so the whole room ends up roughly aligned.
 
 ---
 
@@ -149,8 +149,6 @@ Some skills-based agents expose them differently:
 | Kimi | `/skill:speckit-specify` |
 
 The steps are otherwise identical. Substitute the form your agent uses.
-
-> **If you've seen an older tutorial:** commands used to be bare (`/specify`, `/plan`). They are now namespaced under `speckit.`, and `constitution`, `clarify`, `checklist`, `analyze`, and `converge` have been added to the workflow. This repo uses the current syntax.
 
 ---
 
