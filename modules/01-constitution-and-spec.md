@@ -6,7 +6,7 @@
 
 ## Goal
 
-Establish the project's non-negotiable principles, then write a specification that describes *what* the product does without leaking *how* it is built — using short prompts and letting the agent do the interrogating.
+Establish the project's non-negotiable principles, then write a specification that describes *what* the product does without leaking *how* it is built, using short prompts and letting the agent do the interrogating.
 
 ---
 
@@ -53,8 +53,6 @@ Interview me. Ask up to five questions at a time, give me your recommended defau
 | Increments | One feature = one spec = one commit. Conventional Commits. Tests green before committing. |
 | What happens when a rule must be broken | It gets written down in the spec with a rationale, **before** implementation. |
 
-That last row is worth pausing on. You are pre-authorising a process for breaking your own rules. Module 6 cashes it in.
-
 ### 👉 Prompt 2 — generate it
 
 ```text
@@ -78,18 +76,16 @@ This separation is not bureaucratic. It exists so requirements survive a change 
 ### 👉 Prompt 3 — seed the spec (short, deliberately)
 
 ```text
-/speckit.specify Students leave anonymous feedback on a course: a rating from 1 to 5 and a written comment. Professors read all of it on a private dashboard that shows nothing at all to anyone without credentials. That's the whole first feature — no multiple courses, no export, no charts, no student accounts.
+/speckit.specify Students leave anonymous feedback on a course: a rating from 1 to 5 and a written comment. Professors read all of it on a private dashboard that shows nothing at all to anyone without credentials. That's the whole first feature, no multiple courses, no export, no charts, no student accounts.
 ```
 
-Four sentences. Notice what it contains: the two audiences, the shape of the data, the one hard security property, and an explicit scope boundary. Notice what it *doesn't* contain: validation rules, ordering, empty states, error handling. Those are coming — from the agent, not from you.
+Four sentences. Notice what it contains: the two audiences, the shape of the data, the one hard security property, and an explicit scope boundary. Notice what it *doesn't* contain: validation rules, ordering, empty states, error handling. Those are coming, from the agent, not from you.
 
-**Open `spec.md` and read it as a group.** Look for:
+**Open `spec.md` and read it.** Look for:
 
 - **User stories, prioritised** (P1, P2, P3) — your four sentences decomposed into independently testable slices
 - **Numbered functional requirements** — what tasks will trace back to
 - **`[NEEDS CLARIFICATION]` markers** — genuine ambiguities the agent refused to invent answers for. That refusal is a feature.
-
-Ask the room: *what did it invent that you didn't say?* Usually plenty. That's what the next step is for.
 
 ---
 
@@ -140,7 +136,7 @@ Repeat until clean.
 
 ## 💬 Discussion (2 min)
 
-> Compare your `spec.md` with the person next to you. Same four-sentence seed, different conversations — how far apart did you end up? That gap is the honest measure of how much the dialogue is doing, and it's the thing to be careful about when two people on your team specify adjacent features.
+> Compare your `spec.md` with the person next to you. Same four-sentence seed, different conversations, how far apart did you end up? That gap is the honest measure of how much the dialogue is doing, and it's the thing to be careful about when two people on your team specify adjacent features.
 
 ---
 
