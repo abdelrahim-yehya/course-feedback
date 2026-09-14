@@ -8,7 +8,7 @@
 
 Two techniques:
 
-1. **Handing the agent a deliberately vague requirement and letting it sharpen the edges.** CSV looks trivial and isn't — commas, quotes, newlines, formula injection. You shouldn't have to know that list in advance. You should have to *recognise it when the agent offers it.*
+1. **Handing the agent a deliberately vague requirement and letting it sharpen the edges.** CSV looks trivial and isn't commas, quotes, newlines, formula injection. You shouldn't have to know that list in advance. You should have to *recognise it when the agent offers it.*
 2. **Phased implementation** — scoping `/speckit.implement` to one slice at a time.
 
 ---
@@ -21,7 +21,7 @@ Two techniques:
 /speckit.specify Professors can download all the feedback as a CSV from the dashboard, behind the same login as everything else. It has to survive whatever a student typed in the comment box — the file mustn't break, and opening it in a spreadsheet mustn't do anything dangerous. Also add Refresh and Download buttons to the dashboard.
 ```
 
-Read that back. *"Mustn't break"* and *"mustn't do anything dangerous"* are not requirements — they're gestures at requirements. A human reviewer would push back on them. So will the agent, which is the point.
+Read that back. *"Mustn't break"* and *"mustn't do anything dangerous"* are not requirements, they're gestures at requirements. A human reviewer would push back on them. So will the agent, which is the point.
 
 ---
 
@@ -33,7 +33,7 @@ Read that back. *"Mustn't break"* and *"mustn't do anything dangerous"* are not 
 /speckit.clarify Focus on what "the file mustn't break" and "mustn't do anything dangerous" have to mean precisely. Enumerate the specific cases.
 ```
 
-**What a good agent comes back with** — and what to confirm:
+**What a good agent comes back with** and what to confirm:
 
 | It should raise | Answer |
 |---|---|
@@ -48,13 +48,6 @@ Read that back. *"Mustn't break"* and *"mustn't do anything dangerous"* are not 
 | Empty result set | Header row only, not an empty file. |
 | Button behaviour while a request is in flight | Disabled, so they can't be double-fired. Errors surface visibly, not just in the console. |
 
-**If the agent doesn't raise formula injection, that's the teaching moment.** Ask it directly:
-
-```text
-What could go wrong if a student's comment starts with an equals sign and a professor opens the CSV in Excel?
-```
-
-Then fold the answer back in with another `/speckit.clarify`. The lesson lands harder when the room watches the gap get found than when it was pre-written into a prompt.
 
 ### 👉 Prompt 3 — validate the requirements
 
@@ -72,8 +65,6 @@ Then fold the answer back in with another `/speckit.clarify`. The lesson lands h
 /speckit.plan Extend what we have. Put CSV generation in its own module with no Express dependency so it's unit-testable directly. Add a protected export route that takes the same course filter as the list route. Add the two dashboard buttons. Cover every escaping case we just enumerated in unit tests, plus route tests for auth, headers, and the filter.
 ```
 
-Note what the prompt *doesn't* say: no `Content-Disposition`, no `text/csv`, no escaping algorithm. Those are in the spec and clarifications now. The plan prompt just points at them.
-
 ---
 
 ## 4.4 — Tasks, then implement in phases
@@ -85,8 +76,6 @@ Note what the prompt *doesn't* say: no `Content-Disposition`, no `text/csv`, no 
 /speckit.analyze
 ```
 
-Now scope the implementation instead of one big run. On a real feature this keeps the agent's context focused and gives you checkpoints.
-
 ### 👉 Prompt 5 — phase 1
 
 ```text
@@ -97,7 +86,7 @@ Now scope the implementation instead of one big run. On a real feature this keep
 npm test
 ```
 
-Read the escaping tests. Are the edge cases actually asserted? This is the moment to catch a lazy implementation — while it's five files, not fifty.
+Read the escaping tests. Are the edge cases actually asserted? This is the moment to catch a lazy implementation while it's five files, not fifty.
 
 ### 👉 Prompt 6 — phase 2
 
@@ -157,10 +146,5 @@ Check the diff, confirm tests pass, write a Conventional Commits message for the
 
 ---
 
-## 💬 Discussion (2 min)
-
-> Nobody in this room typed "add formula-injection protection." It came out of a conversation that started from *"mustn't do anything dangerous."* That's the argument for short prompts: you don't have to already know the answer, you have to be able to **recognise a good one when it's offered** — and to notice when it isn't. Which of your team's security properties are currently living in someone's head rather than in a document?
-
----
 
 [Next: Module 5 — Design System Constraints →](05-design-system.md)
