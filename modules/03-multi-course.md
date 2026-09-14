@@ -6,7 +6,7 @@
 
 ## Goal
 
-Handle the requirement change that arrives after you've shipped — the one touching the schema, the API, and both frontends — without opening the editor.
+Handle the requirement change that arrives after you've shipped, the one touching the schema, the API, and both frontends, without opening the editor.
 
 **New requirement:** feedback must be attributed to one of three courses (`CS101`, `AI202`, `ENG304`). Students choose a course; professors filter by it.
 
@@ -33,10 +33,10 @@ Worth 60 seconds before you type anything.
 ### 👉 Prompt 1
 
 ```text
-/speckit.specify Feedback now belongs to a course. Three fixed courses: CS101, AI202, ENG304 — no way to add more at runtime. Students pick one when they submit; professors can filter the dashboard by course or see everything. Everything from the first feature keeps working exactly as it does now.
+/speckit.specify Feedback now belongs to a course. Three fixed courses: CS101, AI202, ENG304, no way to add more at runtime. Students pick one when they submit; professors can filter the dashboard by course or see everything. Everything from the first feature keeps working exactly as it does now.
 ```
 
-That last sentence is the important one. **Stating what must not change is as important as stating what must.** Without it, a regenerated implementation can quietly drop a constraint from an earlier feature. This is the single most useful habit for iterative SDD — and it's six words.
+That last sentence is the important one. **Stating what must not change is as important as stating what must.** Without it, a regenerated implementation can quietly drop a constraint from an earlier feature. This is the single most useful habit for iterative SDD, and it's six words.
 
 ---
 
@@ -61,7 +61,7 @@ That last sentence is the important one. **Stating what must not change is as im
 | Existing rows without a course | Not a concern — in-memory DB starts empty. **Flag this out loud:** in Module 6 it becomes a real migration question. |
 | Where the course list is defined | One shared module, read by both the server validator and the frontend. Three codes, one place. |
 
-That last row is a decision the agent may not think to raise. If it doesn't ask, tell it anyway — it's the difference between a maintainable change and three hardcoded lists.
+That last row is a decision the agent may not think to raise. If it doesn't ask, tell it anyway, it's the difference between a maintainable change and three hardcoded lists.
 
 ---
 
@@ -118,12 +118,6 @@ Check the diff, confirm tests pass, write a Conventional Commits message for mul
 - [ ] Dashboard filter works without a page reload
 - [ ] Earlier tests still pass — nothing regressed
 - [ ] Second semantic commit exists
-
----
-
-## 💬 Discussion (3 min)
-
-> You just changed a schema, two API routes, two pages, and the test suite — from a three-sentence prompt and a handful of answers. What did you lose by not writing that code yourself? Be specific. The honest answers usually involve *fluency with the codebase* and *incidental discovery* — the things you notice only while touching the code. Those are real costs, and knowing where they bite is part of using this well.
 
 ---
 
