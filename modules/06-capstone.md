@@ -1,6 +1,6 @@
 # Module 6 — Capstone: Persistence & Visual Analytics
 
-**⏱ 20 minutes** · [← Module 5](05-design-system.md) · [Wrap-up →](../INSTRUCTOR-NOTES.md#wrap-up)
+**⏱ 20 minutes** · [← Module 5](05-design-system.md) 
 
 ---
 
@@ -186,5 +186,3 @@ Six commits. Every one traceable to a specification. Not one line of application
 4. **Point it at real work.** See [`INSTRUCTOR-NOTES.md`](../INSTRUCTOR-NOTES.md#adopting-this-on-an-existing-codebase).
 
 ---
-
-[Wrap-up & discussion →](../INSTRUCTOR-NOTES.md#wrap-up)
