@@ -10,22 +10,26 @@ Everyone has Spec Kit installed, a project initialized, an agent connected, and 
 
 ---
 
-## 0.1 — Install the prerequisites
+## 0.1 — Install the Prerequisites
 
-If you did the pre-work, skip to 0.2.
+If you completed the pre-work, skip to **0.2**.
+
+| Tool | macOS | Linux | Windows (PowerShell) |
+| --- | --- | --- | --- |
+| **uv** | `brew install uv`<br>*or*<br>`curl -LsSf https://astral.sh/uv/install.sh \| sh` | `curl -LsSf https://astral.sh/uv/install.sh \| sh` | `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 \| iex"` |
+| **Node.js** *(v20+)* | `brew install node`<br>*or* download from [nodejs.org](https://nodejs.org/) | Use `nvm` or download from [nodejs.org](https://nodejs.org/) | `winget install OpenJS.NodeJS.LTS`<br>*or* download from [nodejs.org](https://nodejs.org/) |
+| **Git** | `brew install git`<br>*or* run `git --version` to prompt install | `sudo apt update && sudo apt install git -y` | `winget install --id Git.Git -e --source winget`<br>*or* download from [git-scm.com](https://git-scm.com/) |
+
+---
+
+### Verification
+
+Restart your terminal window, then run:
 
 ```bash
-# uv (macOS / Linux)
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# uv (Windows PowerShell)
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-# verify
 node --version    # expect v20+
-git --version
-uv --version
-```
+git --version     # expect git version 2.x+
+uv --version      # expect uv 0.x+
 
 ---
 
@@ -49,8 +53,6 @@ uvx --from git+https://github.com/github/spec-kit.git specify init
 # pipx
 pipx install specify-cli
 ```
-
-For a workshop, pinning a version is worth the extra 15 seconds. It means everyone sees the same prompts and the same generated templates.
 </details>
 
 ---
@@ -95,14 +97,6 @@ course-feedback/
 │   └── commands/                ← the /speckit.* prompts your agent will run
 └── specs/                       ← one directory per feature, created as you go
 ```
-
-**Two things to point out to the room:**
-
-**1. The slash commands are just prompt files.** Open one — `.claude/commands/speckit.specify.md` or the equivalent for your agent. It is a markdown prompt. There is no magic, no hosted service, no model fine-tuned on your repo. Spec Kit is a well-engineered set of prompts plus a directory convention. That is genuinely reassuring for a security-conscious team, and it means you can read and fork any of it.
-
-This also explains a technique used throughout the workshop: because each command is a template that ends with "now produce the artifact", asking it to interview you in the same message tends to lose. We do the interview as its own turn instead.
-
-**2. Feature state lives in `.specify/feature.json`, not in your git branch.** Commands resolve the active feature from that file. Checking out a different branch does **not** change which feature the agent is working on. If you need to point at a different feature, edit `.specify/feature.json` or set `SPECIFY_FEATURE_DIRECTORY`. This trips people up, so flag it early.
 
 ---
 
